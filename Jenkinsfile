@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build image') {
             steps {
-                app = docker.build('afangndong/beautygit config advice.addEmptyPathspec false')
+                app = docker.build('afangndong/beauty.git')
             }
         }
 
         stage('Push image') {
             steps { 
-                docker.withRegistry('https://registry.hub.docker', 'docker-hub-credentials') {
+                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
                      app.push("${env.BUILD_NUMBER}")
                      app.push("latest")
                 }
