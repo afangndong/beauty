@@ -4,6 +4,6 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 
 #set ownership and permissions
-RUN chmode -R 755 /usr/share/nginx/html
+RUN chmod -R 755 /usr/share/nginx/html
 
 Expose 80
